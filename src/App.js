@@ -12,9 +12,10 @@ function App() {
 
     console.log(game)
 
-    function toggleGame () {
+    function toggleGame() {
       console.log("Game is toggled")
       setGame(prevState => !prevState)
+
     }
 
     function changeData (id, event) {
@@ -48,7 +49,7 @@ function App() {
     
     return (
       <main className='main-component'>
-        {game ? <Front toggleGame={toggleGame}/> : <FormComponent key={nanoid()} data={data} changeData={changeData}/>}
+        {game ? <Front toggleGame={toggleGame}/> : <FormComponent key={nanoid()} data={data} changeData={changeData} toggleGame={toggleGame}/>}
       </main>
     );
 }

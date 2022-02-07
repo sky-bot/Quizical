@@ -2,6 +2,7 @@ import React from 'react'
 
 const FormComponent = (props) => {
 
+    const [result, setPoints] = React.useState({points: 0, showPoint: false})
 
     const handleChange = (event, id) => {
         props.changeData(id, event) 
@@ -20,11 +21,17 @@ const FormComponent = (props) => {
                 score = score +  1
             }
         }
-        console.log("Score: ", score)
+
+        setPoints(prevState => ({...prevState, points: score, showPoint:true}))
 
     }
 
 
+    const showPointComponent = (
+        <div className='points-component'>
+            <p className='Points'>{result.points}</p>
+        </div>
+    )
     
     const formInputs = props.data.map((item) => {
         return (
@@ -82,10 +89,14 @@ const FormComponent = (props) => {
     
 
     return (
-        <form onSubmit={handleSubmit}>
-            {formInputs}
-            <button type='submit'> Submit</button>
-        </form>
+        <>
+            <form onSubmit={handleSubmit}>
+            {result.showPoint ? showPointComponent : formInputs} 
+            {result.showPoint ? "": <button type='submit'>Submit</button>}
+            </form>
+            {result.showPoint ? <button onClick={props.toggleGame}>New Game</button> : ""}
+        </>
+
     )
 
 }
