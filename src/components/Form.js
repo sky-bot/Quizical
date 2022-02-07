@@ -2,7 +2,6 @@ import React from 'react'
 
 const FormComponent = (props) => {
 
-    console.log("Form Data: ", props.data)
 
     const handleChange = (event, id) => {
         props.changeData(id, event) 
@@ -11,7 +10,6 @@ const FormComponent = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log("Submit is Clicked")
 
         let score = 0
         console.log(props.data)
