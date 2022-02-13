@@ -94,7 +94,7 @@ const FormComponent = (props) => {
             {result.showPoint ? showPointComponent : formInputs} 
             {result.showPoint ? "": <button type='submit'>Submit</button>}
             </form>
-            {result.showPoint ? <button onClick={props.toggleGame}>New Game</button> : ""}
+            {result.showPoint ? <button className='submit-button' onClick={props.toggleGame}>New Game</button> : ""}
         </>
 
     )
